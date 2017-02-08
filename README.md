@@ -18,7 +18,7 @@ A small & simple sorting component for tables written in JavaScript.
   new Tablesort(document.getElementById('table-id'));
 </script>
 ```
-**[See usage and demos for more](http://tristen.ca/tablesort/demo/)**
+**[See usage and demos for more](http://zengkv.com/tablesort/demo/)**
 
 ---
 

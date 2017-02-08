@@ -5,7 +5,7 @@
   "author": "tristen",
   "license": "MIT",
   "main": "./src/tablesort.js",
-  "homepage": "http://tristen.ca/tablesort/demo/",
+  "homepage": "http://zengkv.com/tablesort/demo/",
   "scripts": {
     "build": "grunt",
     "test": "tape test/test.client.js | tap-spec"

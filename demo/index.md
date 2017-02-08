@@ -45,6 +45,12 @@ For columns or rows that do not require sorting, you can add attribute `data-sor
 </tr>
 {% endhighlight %} 
 
+For columns that do not require sorting, you can add attribute `data-sort-static='true'` to a columns `th` element.
+
+{% highlight html %}<th data-sort-static='true'>#</th>
+
+{% endhighlight %} 
+
 ### Override data that is sorted on
 
 Sometimes text inside cells is not normalized. Using a `data-sort` attribute you can use optional data to sort on.
