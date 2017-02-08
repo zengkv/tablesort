@@ -10,7 +10,7 @@
   "homepage": "http://zengkv.com/tablesort/demo",
   "repository": {
     "type": "git",
-    "url": "git://github.com/tristen/tablesort.git"
+    "url": "git://github.com/zengkv/tablesort.git"
   },
   "keywords": [
     "tablesort",

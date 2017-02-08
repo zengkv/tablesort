@@ -16,7 +16,7 @@ layout: default
 
 ## Sort types
 
-See all available sort types in the [sort directory of the project](https://github.com/tristen/tablesort/tree/gh-pages/src/sorts/). Defaults to string if no sort types are provided.
+See all available sort types in the [sort directory of the project](https://github.com/zengkv/tablesort/tree/gh-pages/src/sorts/). Defaults to string if no sort types are provided.
 
 ## Additional options
 
@@ -221,7 +221,7 @@ MIT
 
 ## Bugs?
 
-[File Them](https://github.com/tristen/tablesort/issues)
+[File Them](https://github.com/zengkv/tablesort/issues)
 
 <script>
   new Tablesort(document.getElementById('defaulting'));

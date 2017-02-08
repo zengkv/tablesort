@@ -44,7 +44,7 @@ Add the styling from [tablesort.css](tablesort.css) file to your CSS or roll wit
 ### Extending Tablesort
 
 If you require a sort operation that does not exist
-in the [sorts](https://github.com/tristen/tablesort/tree/gh-pages/src/sorts/)
+in the [sorts](https://github.com/zengkv/tablesort/tree/gh-pages/src/sorts/)
 directory, you can add your own.
 
 ``` js
@@ -82,4 +82,4 @@ MIT
 
 ### Bugs?
 
-[Create an issue](https://github.com/tristen/tablesort/issues)
+[Create an issue](https://github.com/zengkv/tablesort/issues)
