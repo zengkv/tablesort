@@ -111,7 +111,7 @@
       for (i = 0; i < firstRow.cells.length; i++) {
         cell = firstRow.cells[i];
         cell.setAttribute('role','columnheader');
-        if (cell.getAttribute('data-sort-method') !== 'none') {
+        if (cell.getAttribute('data-sort-method') !== 'none' && cell.getAttribute('data-sort-static') !== "true") {
           cell.tabindex = 0;
           cell.addEventListener('click', onClick, false);
 
@@ -135,7 +135,8 @@
           items = [],
           i = that.thead ? 0 : 1,
           sortMethod = header.getAttribute('data-sort-method'),
-          sortOrder = header.getAttribute('aria-sort');
+          sortOrder = header.getAttribute('aria-sort'),
+          staticCols = {};
 
       that.table.dispatchEvent(createEvent('beforeSort'));
 
@@ -184,12 +185,23 @@
         }
       }
 
+      for (i = 0; i<header.parentNode.cells.length; i++) {
+        item = header.parentNode.cells[i];
+
+        if (item.getAttribute('data-sort-static') == 'true' && i != column ) {
+          // keep no sorts in separate list to be able to insert
+          // this column cells back at their original position later
+          staticCols[i] = [];
+        }
+      }
+
       that.col = column;
 
       for (i = 0; i < that.table.tBodies.length; i++) {
         var newRows = [],
             noSorts = {},
             j,
+            k,
             totalRows = 0,
             noSortsSoFar = 0;
 
@@ -208,6 +220,11 @@
               td: getInnerText(item.cells[that.col]),
               index: totalRows
             });
+          }
+
+          for (k in staticCols) {
+            //record k column totalRows row
+            staticCols[k][totalRows] = item.cells[k];
           }
           totalRows++;
         }
@@ -233,6 +250,23 @@
 
           // appendChild(x) moves x if already present somewhere else in the DOM
           that.table.tBodies[i].appendChild(item);
+        }
+
+        //recover static col
+        for (k in staticCols) {
+
+          k = parseInt(k);
+          for (j = 0; j < totalRows; j++) {
+
+            item = that.table.tBodies[i].rows[j].cells[k];
+            that.table.tBodies[i].rows[j].removeChild(item);
+          }
+
+          for (j = 0; j < totalRows; j++) {
+
+            item = that.table.tBodies[i].rows[j].cells[k];
+            that.table.tBodies[i].rows[j].insertBefore(staticCols[k][j], item);
+          }
         }
       }
 
